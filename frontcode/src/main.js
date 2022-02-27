@@ -1,15 +1,12 @@
-/*import { createApp } from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
+import ElementUI from './plugins/element';
+import router from './router'
 
-createApp(App).mount('#app')*/
-import Vue from 'vue'
-import App from './App.vue'
-import './plugins/element.js'
-import router from './router' //引入路由配置
+// 使用elementUI
+//createApp(App).mount('#app');
 
-Vue.config.productionTip = false
-
-new Vue({
-    render: h => h(App),
-    router, //使用路由配置
-}).$mount('#app')
+createApp(App).use(router).use(router).use(router).mount('#app');
+export default (app) => {
+    app.use(ElementUI)
+}
