@@ -1,70 +1,57 @@
+<style>
+@import url("./login.css");
+</style>
 <template>
-  <div class="login-container">
-    <el-form ref="form"  :rules=rules :model="form" label-width="80px" class="login-form">
-      <h2 class="login-title">会员管理系统</h2>
-      <el-form-item label="账号" prop="username">
-        <el-input v-model="form.username"></el-input>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input v-model="form.password" type="password"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('form')">登录</el-button>
-      </el-form-item>
-    </el-form>
+  <div class="container">
+    <div class="main">
+        <!-- 整个注册盒子 -->
+      <div class="loginbox">
+          <!-- 左侧的注册盒子 -->
+          <div class="loginbox-in">
+          <div class="userbox"> 
+           <span class="iconfont">&#xe611;</span> 
+           <input  class="user" id="user"  v-model="name" placeholder="用户名">
+           </div>
+          <br>
+          <div class="pwdbox">
+            <span class="iconfont">&#xe611;</span>
+           <input  class="pwd"  id="password" v-model="pwd" type="password"  placeholder="密码">
+           </div>
+          <br>
+          <div class="pwdbox">
+            <span class="iconfont">&#xe611;</span>
+           <input  class="pwd"  id="re_password"  v-model="repwd" type="password"  placeholder="确认密码">
+           </div>
+           
+           <br>
+           <button type="primary"  class="register_btn" @click="register">Register</button>
+     </div>
+ 
+        <!-- 右侧的注册盒子 -->
+         <div class="background">
+            <div class="title">Welcome to WH System Management Center</div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        username: "",
-        password: ""
-      },
-      rules:{//定义规则
-         username: [
-            { required: true, message: '账号不能为空', trigger: 'blur' },
-          ],
-          password: [
-            { required: true, message: '密码不能为空', trigger: 'blur' },
-          ],
-
-      }
-    };
-  },
-  methods: {
-     submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        })
-     }
-     }
-};
-</script>
-<style scoped>
-.login-form {
-  width: 350px;
-  margin: 260px auto;
-  background-color: #d0cfd9;
-  /* rgb(208, 207, 217,0.8) */
-  padding: 25px;
-  border-radius: 20px;
-}
-.login-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* 上一级的上一级采用../../ */
-  background: url();
-}
-.login-title {
-  color: #303133;
-  text-align: center;
-}
+<style>
+    input{
+        border: 1px solid #ccc;
+        padding: 7px 0px;
+        border-radius: 3px;
+        padding-left:5px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+    }
+    input:focus{
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+    }
 </style>

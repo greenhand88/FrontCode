@@ -20,6 +20,16 @@ const routes = [{
         name: 'Blog Login',
         component: login
     }
+    /*,
+        {
+            path: '/Register',
+            name: 'Register',
+            component: Register
+        }, {
+            path: '/Homepage',
+            name: 'Homepage',
+            component: Homepage
+        }*/
 ]
 
 const router = createRouter({
